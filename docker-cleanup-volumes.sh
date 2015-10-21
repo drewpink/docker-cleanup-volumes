@@ -24,8 +24,8 @@ layersdir=${aufsdir}/layers
 mntdir=${aufsdir}/mnt
 
 allvolumes=()
-dryrun=false
-verbose=false
+dryrun=true
+verbose=true
 
 function log_verbose() {
     if [ "${verbose}" = true ]; then
