@@ -18,7 +18,11 @@ fi
 dockerdir=$(readlink -f $dockerdir)
 
 volumesdir=${dockerdir}/volumes
-vfsdir=${dockerdir}/vfs/dir
+aufsdir=${dockerdir}/aufs
+diffdir=${aufsdir}/diff
+layersdir=${aufsdir}/layers
+mntdir=${aufsdir}/mnt
+
 allvolumes=()
 dryrun=false
 verbose=false
@@ -144,5 +148,7 @@ for container in $container_ids; do
 done
 
 delete_volumes ${volumesdir}
-delete_volumes ${vfsdir}
+delete_volumes ${diffdir}
+delete_volumes ${layersdir}
+delete_volumes ${mntdir}
 
